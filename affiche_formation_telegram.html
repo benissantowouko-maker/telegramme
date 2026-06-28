@@ -1,0 +1,407 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Mono:wght@500&display=swap');
+
+  .poster {
+    font-family: 'Space Grotesk', sans-serif;
+    background: #060d1a;
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 0 40px;
+  }
+
+  .poster-top {
+    background: linear-gradient(160deg, #0d2040 0%, #081529 60%, #060d1a 100%);
+    padding: 44px 40px 36px;
+    position: relative;
+    border-bottom: 1px solid #1a2f50;
+  }
+
+  .tg-logo {
+    width: 56px; height: 56px;
+    background: #2AABEE;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: 0 0 32px rgba(42,171,238,0.4);
+  }
+
+  .tg-logo svg { width: 32px; height: 32px; }
+
+  .poster-kicker {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #2AABEE;
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .kicker-line {
+    display: inline-block;
+    width: 28px; height: 2px;
+    background: #2AABEE;
+    border-radius: 1px;
+    vertical-align: middle;
+  }
+
+  .poster-headline {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+
+  .poster-headline .accent {
+    color: #2AABEE;
+  }
+
+  .poster-sub {
+    font-size: 15px;
+    color: #6b859e;
+    line-height: 1.6;
+    margin-top: 14px;
+    max-width: 440px;
+  }
+
+  .situation-box {
+    background: rgba(239,68,68,0.08);
+    border: 1px solid rgba(239,68,68,0.25);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 24px 40px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .situation-icon { font-size: 20px; flex-shrink: 0; }
+
+  .situation-text {
+    font-size: 13.5px;
+    color: #f9a8a8;
+    line-height: 1.55;
+  }
+
+  .situation-text strong { color: #fecaca; font-weight: 600; }
+
+  .section-pad { padding: 0 40px; }
+
+  .divider {
+    height: 1px;
+    background: #111f35;
+    margin: 28px 40px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #3d5570;
+    margin-bottom: 16px;
+  }
+
+  .benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .benefit-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .benefit-check {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: rgba(42,171,238,0.12);
+    border: 1px solid rgba(42,171,238,0.3);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 12px;
+    color: #2AABEE;
+    margin-top: 1px;
+  }
+
+  .benefit-text {
+    font-size: 14px;
+    color: #c8d8e8;
+    line-height: 1.55;
+  }
+
+  .benefit-text strong { color: #e8f2fb; font-weight: 600; }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .step-chip {
+    background: #0d1e33;
+    border: 1px solid #1a2f50;
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .step-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #2AABEE;
+    background: rgba(42,171,238,0.1);
+    border: 1px solid rgba(42,171,238,0.2);
+    border-radius: 6px;
+    padding: 3px 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .step-label {
+    font-size: 12.5px;
+    color: #8faec8;
+    line-height: 1.4;
+  }
+
+  .bonus-strip {
+    background: linear-gradient(135deg, #062a1f, #061e35);
+    border-top: 1px solid #0f3028;
+    border-bottom: 1px solid #0f3028;
+    padding: 18px 40px;
+    margin: 28px 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .bonus-badge {
+    background: rgba(0,229,195,0.12);
+    border: 1px solid rgba(0,229,195,0.3);
+    border-radius: 8px;
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #00e5c3;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .bonus-text {
+    font-size: 13px;
+    color: #6bccb3;
+    line-height: 1.5;
+  }
+
+  .bonus-text strong { color: #a0f0df; font-weight: 600; }
+
+  .cta-zone {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .cta-btn {
+    width: 100%;
+    background: #2AABEE;
+    border: none;
+    border-radius: 14px;
+    padding: 18px 32px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    cursor: pointer;
+    letter-spacing: -0.01em;
+    transition: background 0.2s, transform 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .cta-btn:hover { background: #1d98d9; transform: translateY(-1px); }
+  .cta-btn:active { transform: scale(0.98); }
+
+  .cta-arrow {
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    width: 28px; height: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+  }
+
+  .cta-guarantee {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #3d5570;
+  }
+
+  .guarantee-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #1d4570;
+  }
+
+  .social-proof {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .star { color: #f59e0b; font-size: 14px; }
+
+  .proof-text {
+    font-size: 12px;
+    color: #3d5570;
+  }
+
+  .proof-text strong { color: #5a7a99; }
+
+  .glow-top {
+    position: absolute;
+    top: -100px; left: 50%;
+    transform: translateX(-50%);
+    width: 500px; height: 300px;
+    background: radial-gradient(ellipse, rgba(42,171,238,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .glow-corner {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(0,229,195,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+</style>
+
+<div class="poster">
+  <div class="poster-top">
+    <div class="glow-top"></div>
+
+    <div class="tg-logo">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.93 7.02l-1.68 7.92c-.12.56-.45.7-.92.44l-2.55-1.88-1.23 1.18c-.14.14-.26.26-.52.26l.18-2.6 4.72-4.26c.2-.18-.05-.28-.32-.1L7.87 14.4l-2.5-.78c-.54-.17-.55-.54.12-.8l9.75-3.76c.45-.16.84.11.69.96z" fill="white"/>
+      </svg>
+    </div>
+
+    <div class="poster-kicker">
+      <span class="kicker-line"></span>
+      Formation Telegram
+      <span class="kicker-line"></span>
+    </div>
+
+    <div class="poster-headline">
+      Récupère ton compte<br><span class="accent">en 10 minutes</span><br>sans SMS
+    </div>
+
+    <div class="poster-sub">
+      Tu es bloqué hors de ton Telegram ? Si tu as encore une session active quelque part, il existe une méthode simple et officielle pour reprendre le contrôle immédiatement.</div>
+  </div>
+
+  <div class="situation-box">
+    <span class="situation-icon">🚨</span>
+    <div class="situation-text">
+      <strong>Tu te reconnais ici ?</strong> SMS qui n'arrive pas, mot de passe oublié, nouveau téléphone... Ce tutoriel résout exactement ces situations — pas besoin d'un technicien.
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-pad">
+    <div class="section-label">Ce que tu vas apprendre</div>
+    <div class="benefits">
+      <div class="benefit-row">
+        <div class="benefit-check">✓</div>
+        <div class="benefit-text"><strong>Utiliser ta session active</strong> pour recevoir le code directement dans l'appli, sans attendre de SMS</div>
+      </div>
+      <div class="benefit-row">
+        <div class="benefit-check">✓</div>
+        <div class="benefit-text"><strong>Retrouver l'accès complet</strong> à tes messages, groupes et contacts sans perdre aucune donnée</div>
+      </div>
+      <div class="benefit-row">
+        <div class="benefit-check">✓</div>
+        <div class="benefit-text"><strong>Sécuriser ton compte définitivement</strong> pour que ça n'arrive plus jamais</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-pad">
+    <div class="section-label">Les étapes couvertes</div>
+    <div class="steps-grid">
+      <div class="step-chip">
+        <span class="step-num">01</span>
+        <span class="step-label">Trouver la session active</span>
+      </div>
+      <div class="step-chip">
+        <span class="step-num">02</span>
+        <span class="step-label">Lancer la connexion</span>
+      </div>
+      <div class="step-chip">
+        <span class="step-num">03</span>
+        <span class="step-label">Récupérer le code</span>
+      </div>
+      <div class="step-chip">
+        <span class="step-num">04</span>
+        <span class="step-label">Valider et accéder</span>
+      </div>
+      <div class="step-chip">
+        <span class="step-num">05</span>
+        <span class="step-label">Gérer le mot de passe</span>
+      </div>
+      <div class="step-chip">
+        <span class="step-num">⭐</span>
+        <span class="step-label">Bonus sécurité offert</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bonus-strip">
+    <div class="bonus-badge">Bonus</div>
+    <div class="bonus-text"><strong>Section sécurité incluse :</strong> double authentification, vérification des appareils, code verrou — tout pour dormir tranquille après.</div>
+  </div>
+
+  <div class="cta-zone">
+    <button class="cta-btn" onclick="sendPrompt('Je veux accéder à la formation Telegram')">
+      Accéder à la formation maintenant
+      <span class="cta-arrow">→</span>
+    </button>
+
+    <div class="cta-guarantee">
+      <span class="guarantee-dot"></span>
+      Tutoriel étape par étape
+      <span class="guarantee-dot"></span>
+      Méthode officielle Telegram
+      <span class="guarantee-dot"></span>
+      Résultat garanti
+    </div>
+
+    <div class="social-proof">
+      <span class="star">★★★★★</span>
+      <span class="proof-text">Fonctionne sur <strong>Android, iPhone, PC et tablette</strong></span>
+    </div>
+  </div>
+
+  <div class="glow-corner"></div>
+</div>
